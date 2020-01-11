@@ -9,8 +9,8 @@ int main()
 
 	string productCode;
 	char tagColour;
-	int quantity, Gcounter=0, Bcounter=0;
-	double unitPrice, amountPayable, rate, sum=0;
+	int quantity, Gcounter = 0, Bcounter = 0;
+	double unitPrice, amountPayable, rate, sum = 0;
 	ifstream inFile;
 	fstream file;
 	inFile.open("invoice.txt");
@@ -19,19 +19,19 @@ int main()
 	else
 	{
 		cout << left;
-		cout << left << "Product Code" << setw(13) << "Unit Price" setw(13) << "Quantity" setw(13) << "Tag Colour" << setw(13) << "Disc Rate"
+		cout << left << "Product Code" << setw(13) << "Unit Price" << setw(13) << "Quantity" << setw(13) << "Tag Colour" << setw(13) << "Disc Rate"
 			<< "Amount Payable" << endl;
 		while (!inFile.eof())
 		{
 			inFile >> productCode >> unitPrice >> quantity >> tagColour;
-			if (inFile.fail()) break
+			if (inFile.fail()) break;
 			else
 			{
-				if (unitPrice > 70 && tagColour = "B") rate = 0.25;
-				else if (unitPrice > 50 && tagColour = "G") rate = 0.15;
+				if (unitPrice > 70 && tagColour == 'B') rate = 0.25;
+				else if (unitPrice > 50 && tagColour == 'G') rate = 0.15;
 				else rate = 0.12;
 
-				if (tagColour = "B") Bcounter++;
+				if (tagColour == 'B') Bcounter++;
 				else Gcounter++;
 
 				amountPayable = unitPrice * quantity * (1 - rate);
